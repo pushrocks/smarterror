@@ -1,6 +1,6 @@
 {
   "name": "smarterror",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "better error handling",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
