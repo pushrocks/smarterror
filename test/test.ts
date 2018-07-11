@@ -1,11 +1,17 @@
-import * as smarterror from '../dist/index'
+import * as smarterror from '../ts/index';
 
-import { expect, tap } from 'tapbundle'
+import { expect, tap } from 'tapbundle';
 
+let originalError: smarterror.SmartError;
 tap.test('should create a valid error', async () => {
-  let myError = new smarterror.SmartError('wow')
-  expect(myError).to.be.instanceof(Error)
-  console.log(myError.stack)
+  originalError = new smarterror.SmartError('wow');
+  expect(originalError).to.be.instanceof(Error);
+  console.log(originalError.cleanFullStack);
+});
+
+tap.test('should accept another error as cause', async () => {
+  let anotherError = new smarterror.SmartError('this is another Error', originalError);
+  console.log(anotherError.cleanFullStack);
 })
 
-tap.start()
+tap.start();
